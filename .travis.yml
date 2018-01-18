@@ -1,4 +1,17 @@
 language: node.js
 node_js:
   -8
-script: -npm test -- --coverage && cat ./coverage/lcov.ino | coveralls
+cache: 
+  directories:
+    - node_modules
+  yarn: true
+script: 
+  - npm build 
+  - npm test -- --coverage && cat ./coverage/lcov.ino | coveralls
+deploy: 
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local-dir: build
+  on: 
+    branch: master 
