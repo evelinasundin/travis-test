@@ -10,8 +10,8 @@ script:
   - npm test -- --coverage && cat ./coverage/lcov.info | coveralls
 deploy: 
   provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
   local-dir: build
   on: 
     branch: master 
