@@ -1,0 +1,4 @@
+language: node.js
+node_js:
+  -8
+script: -npm test -- --coverage && cat ./coverage/lcov.ino | coveralls
